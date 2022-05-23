@@ -1,20 +1,17 @@
-const sumAll = function(x, y) {
-  if (typeof x === "number" && typeof y === "number") {
-    if (x >= 0 && y >= 0) {
-      if (x > y) {
-        let temp = x;
-        x = y;
-        y = temp;
-      }
-
-      let sum = 0;
-      for (let i = x; i <= y; i++) {
-        sum += i;
-      }
-      return sum;
-    }
+const sumAll = function(min, max) {
+  if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";
+  if (min < 0 || max < 0) return "ERROR";
+  if (min > max) {
+    const temp = min;
+    min = max;
+    max = temp;
   }
-  return "ERROR";
+
+  let sum = 0;
+  for (let i = min; i <= max; i++) {
+    sum += i;
+  }
+  return sum;
 };
 
 // Do not edit below this line
